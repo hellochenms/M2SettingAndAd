@@ -10,6 +10,8 @@
 #import "RootViewController.h"
 #import "M2VersionUpdateManager.h"
 #import "VersionUpdateAdapter.h"
+#import "M2RatingRemindManager.h"
+#import "RatingRemindAdapter.h"
 
 @implementation AppDelegate
 
@@ -19,6 +21,8 @@
     // Override point for customization after application launch.
     // 版本检查更新
     [M2VersionUpdateManager sharedInstance].adapter = [VersionUpdateAdapter new];
+    // 评分提示
+    [M2RatingRemindManager sharedInstance].adapter = [RatingRemindAdapter new];
     
     RootViewController *rootViewController = [RootViewController new];
     UINavigationController *naviController = [[UINavigationController alloc] initWithRootViewController:rootViewController];

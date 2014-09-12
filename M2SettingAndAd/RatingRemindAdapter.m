@@ -1,48 +1,49 @@
 //
-//  VersionUpdateAdapter.m
+//  RatingRemindAdapter.m
 //  M2Setting
 //
 //  Created by Chen Meisong on 14-9-11.
 //  Copyright (c) 2014年 chenms.m2 All rights reserved.
 //
 
-#import "VersionUpdateAdapter.h"
+#import "RatingRemindAdapter.h"
 
-@interface VersionUpdateAdapter ()<UIAlertViewDelegate>
+@interface RatingRemindAdapter ()<UIAlertViewDelegate>
 @property (nonatomic, copy) void(^updateHandler)(NSString *iTunesURLString);
 @property (nonatomic, copy) void(^skipCurVersionHandler)(void);
 @property (nonatomic, copy) void(^laterRemindHandler)(void);
 @end
 
-@implementation VersionUpdateAdapter
-- (NSString *)lastedVersion {
-    NSString *lastedVersion = @"1.3.0";
-    return lastedVersion;
+@implementation RatingRemindAdapter
+#pragma mark - M2RatingRemindProtocol
+- (BOOL)isNeedRemindRating {
+    return YES;
 }
-
+- (NSInteger)ratingRemindTimeInterval {
+    return 60 * 60 * 24 * 3;
+}
 - (void)showAlertViewWithUpdateHandler:(void(^)(NSString *iTunesURLString))updateHandler
                  skipCurVersionHandler:(void(^)(void))skipCurVersionHandler
                     laterRemindHandler:(void(^)(void))laterRemindHandler {
     self.updateHandler = updateHandler;
     self.skipCurVersionHandler = skipCurVersionHandler;
     self.laterRemindHandler = laterRemindHandler;
-    // 弹出提示框
-    NSString *title = @"应用1.3.0版本上线喽！";
-    NSString *message = @"没有最漂亮只有更漂亮@赶快升级吧，亲！";
-    NSMutableString * mutablemessage = [NSMutableString string];
-    [[message componentsSeparatedByString:@"@"] enumerateObjectsUsingBlock:^(NSString * submessage, NSUInteger idx, BOOL *stop) {
-        if ([mutablemessage length] > 0) {
-            [mutablemessage appendString:@"\n"];
-        }
-        [mutablemessage appendString:submessage];
-    }];
-    
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
-                                                        message:mutablemessage
-                                                       delegate:self
-                                              cancelButtonTitle:@"稍后提醒"
-                                              otherButtonTitles:@"更新", @"跳过该版本", nil];
-    [alertView show];
+    NSString *title = @"给开发者些鼓励和支持吧！";
+    NSString *message = @"我们提供的服务，您还满意吗？";
+    NSString *acceptButtonTitle = @"去评分";
+    NSString *refuseButtonTitle = @"残忍的拒绝";
+    if ([title length] <= 0
+        || [message length] <= 0
+        || [acceptButtonTitle length] <= 0
+        || [refuseButtonTitle length] <= 0) {
+        return;
+    }
+    UIAlertView *ratingAlertView = [[UIAlertView alloc] initWithTitle:title
+                                                              message:message
+                                                             delegate:self
+                                                    cancelButtonTitle:@"以后再说"
+                                                    otherButtonTitles:acceptButtonTitle, refuseButtonTitle, nil];
+    [ratingAlertView show];
 }
 
 #pragma mark - UIAlertViewDelegate

@@ -23,6 +23,8 @@
 		9982CFFD19C2916800455257 /* _tempViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9982CFFC19C2916800455257 /* _tempViewController.m */; };
 		9982D00319C2933100455257 /* M2VersionUpdateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9982D00219C2933100455257 /* M2VersionUpdateManager.m */; };
 		9982D00619C2933D00455257 /* VersionUpdateAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9982D00519C2933D00455257 /* VersionUpdateAdapter.m */; };
+		9982D01419C2D6AC00455257 /* M2RatingRemindManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9982D01119C2D6AC00455257 /* M2RatingRemindManager.m */; };
+		9982D01519C2D6AC00455257 /* RatingRemindAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9982D01319C2D6AC00455257 /* RatingRemindAdapter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,10 @@
 		9982D00219C2933100455257 /* M2VersionUpdateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M2VersionUpdateManager.m; sourceTree = "<group>"; };
 		9982D00419C2933D00455257 /* VersionUpdateAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionUpdateAdapter.h; sourceTree = "<group>"; };
 		9982D00519C2933D00455257 /* VersionUpdateAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionUpdateAdapter.m; sourceTree = "<group>"; };
+		9982D01019C2D6AC00455257 /* M2RatingRemindManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M2RatingRemindManager.h; sourceTree = "<group>"; };
+		9982D01119C2D6AC00455257 /* M2RatingRemindManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M2RatingRemindManager.m; sourceTree = "<group>"; };
+		9982D01219C2D6AC00455257 /* RatingRemindAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingRemindAdapter.h; sourceTree = "<group>"; };
+		9982D01319C2D6AC00455257 /* RatingRemindAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingRemindAdapter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +132,7 @@
 				9982CFFB19C2916800455257 /* _tempViewController.h */,
 				9982CFFC19C2916800455257 /* _tempViewController.m */,
 				9982CFFE19C292B000455257 /* 1.版本检查更新 */,
+				9982D00F19C2D67600455257 /* 2.评分提示 */,
 				9982CFDB19C290B800455257 /* Images.xcassets */,
 				9982CFFF19C292C900455257 /* Resources */,
 				9982CFD019C290B700455257 /* Supporting Files */,
@@ -186,6 +193,17 @@
 			children = (
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		9982D00F19C2D67600455257 /* 2.评分提示 */ = {
+			isa = PBXGroup;
+			children = (
+				9982D01019C2D6AC00455257 /* M2RatingRemindManager.h */,
+				9982D01119C2D6AC00455257 /* M2RatingRemindManager.m */,
+				9982D01219C2D6AC00455257 /* RatingRemindAdapter.h */,
+				9982D01319C2D6AC00455257 /* RatingRemindAdapter.m */,
+			);
+			name = "2.评分提示";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,7 +304,9 @@
 				9982D00319C2933100455257 /* M2VersionUpdateManager.m in Sources */,
 				9982CFFD19C2916800455257 /* _tempViewController.m in Sources */,
 				9982CFDA19C290B800455257 /* AppDelegate.m in Sources */,
+				9982D01419C2D6AC00455257 /* M2RatingRemindManager.m in Sources */,
 				9982D00619C2933D00455257 /* VersionUpdateAdapter.m in Sources */,
+				9982D01519C2D6AC00455257 /* RatingRemindAdapter.m in Sources */,
 				9982CFD619C290B800455257 /* main.m in Sources */,
 				9982CFFA19C2914300455257 /* RootViewController.m in Sources */,
 			);
