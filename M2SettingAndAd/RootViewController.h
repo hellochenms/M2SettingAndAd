@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "M2BannerLifeManager.h"
 
-@interface RootViewController : UIViewController
+@interface RootViewController : UIViewController<M2BannerLifeDelegate>
 
 @end

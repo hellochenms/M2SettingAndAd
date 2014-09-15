@@ -7,10 +7,12 @@
 //
 
 #import "RootViewController.h"
+#import "BannerAdView.h"
 
 @interface RootViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic) NSArray       *datas;
 @property (nonatomic) UITableView   *tableView;
+@property (nonatomic) BannerAdView  *bannerAdView;
 @end
 
 @implementation RootViewController
@@ -29,16 +31,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero];
+    self.navigationController.navigationBarHidden = YES;
+    
+    CGRect frame = [UIScreen mainScreen].bounds;
+    frame.size.height -= (isIOS7 ? 0 : 20);
+    
+    self.tableView = [[UITableView alloc] initWithFrame:frame];
     self.tableView.backgroundColor = [UIColor lightGrayColor];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.tableView.frame = self.view.bounds;
 }
 
 #pragma mark - UITableViewDataSource
@@ -63,4 +65,36 @@
     [self.navigationController pushViewController:subViewController animated:YES];
 }
 
+#pragma mark - 广告banner
+#pragma mark M2BannerLifeDelegate
+- (UIView *)bannerView {
+    return self.bannerAdView;
+}
+- (BOOL)showAdEnabled {
+    return YES;
+}
+- (NSInteger)delayTimeSinceNoUserAction {
+    return 5;
+}
+- (void)showAd {
+    if (self.bannerAdView) {
+        return;
+    }
+    self.bannerAdView = [[BannerAdView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.tableView.bounds) - 50, CGRectGetWidth(self.tableView.bounds), 50)];
+    self.bannerAdView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+    self.bannerAdView.alpha = 0;
+    [self.view addSubview:self.bannerAdView];
+    __weak typeof(self) weakSelf = self;
+    [UIView animateWithDuration:0.25
+                     animations:^{
+                         weakSelf.bannerAdView.alpha = 1;
+                     }];
+}
+- (void)hideAd {
+    if (!self.bannerAdView) {
+        return;
+    }
+    [self.bannerAdView removeFromSuperview];
+    self.bannerAdView = nil;
+}
 @end

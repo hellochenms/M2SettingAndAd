@@ -12,12 +12,13 @@
 #import "VersionUpdateAdapter.h"
 #import "M2RatingRemindManager.h"
 #import "RatingRemindAdapter.h"
+#import "M2BannerLifeManager.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = [[M2SAAWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     // 版本检查更新
     [M2VersionUpdateManager sharedInstance].adapter = [VersionUpdateAdapter new];
@@ -27,6 +28,10 @@
     RootViewController *rootViewController = [RootViewController new];
     UINavigationController *naviController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
     self.window.rootViewController = naviController;
+    
+    // 广告banner
+    [M2BannerLifeManager sharedInstance].delegate = rootViewController;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
