@@ -11,6 +11,7 @@
 
 @implementation M2SAAWindow
 - (void)sendEvent:(UIEvent *)event {
+    [super sendEvent:event];
     [[M2BannerLifeManager sharedInstance] sendEvent:event fromWindow:self];
 }
 

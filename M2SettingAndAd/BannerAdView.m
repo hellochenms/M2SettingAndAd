@@ -15,10 +15,9 @@
     if (self) {
         UILabel *bannerLabel = [[UILabel alloc] initWithFrame:self.bounds];
         bannerLabel.textAlignment = NSTextAlignmentCenter;
-        bannerLabel.backgroundColor = [UIColor lightGrayColor];
+        bannerLabel.backgroundColor = [UIColor whiteColor];
         bannerLabel.text = @"广告条";
         [self addSubview:bannerLabel];
-        
     }
     
     return self;

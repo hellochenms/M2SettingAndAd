@@ -28,12 +28,25 @@
     if (isIOS7) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
+    
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    double yModifier = (isIOS7 ? 20 : 0);
+    backButton.frame = CGRectMake(10, yModifier + 7, 60, 30);
+    backButton.backgroundColor = [UIColor blueColor];
+    [backButton setTitle:@"返回" forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(onTapBackButton) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:backButton];
+    
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(10, 10, 300, 30);
+    button.frame = CGRectMake(10, yModifier + 44 + 7, 300, 30);
     button.backgroundColor = [UIColor blueColor];
     [button setTitle:@"点击" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(onTapButton) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+}
+
+- (void)onTapBackButton {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)onTapButton{

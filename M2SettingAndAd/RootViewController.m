@@ -8,11 +8,14 @@
 
 #import "RootViewController.h"
 #import "BannerAdView.h"
+#import "M2LoadingAdView.h"
+#import "LoadingAdViewAdapter.h"
 
 @interface RootViewController ()<UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic) NSArray       *datas;
-@property (nonatomic) UITableView   *tableView;
-@property (nonatomic) BannerAdView  *bannerAdView;
+@property (nonatomic) NSArray           *datas;
+@property (nonatomic) UITableView       *tableView;
+@property (nonatomic) M2LoadingAdView   *loadingAdView;
+@property (nonatomic) BannerAdView      *bannerAdView;
 @end
 
 @implementation RootViewController
@@ -41,6 +44,13 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
+    
+    self.loadingAdView = [[M2LoadingAdView alloc] initWithFrame:frame];
+    self.loadingAdView.adapter = [LoadingAdViewAdapter new];
+    __weak typeof(self) weakSelf = self;
+    [self.loadingAdView showInView:self.view completionHandler:^{
+        weakSelf.loadingAdView = nil;
+    }];
 }
 
 #pragma mark - UITableViewDataSource
@@ -83,7 +93,12 @@
     self.bannerAdView = [[BannerAdView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.tableView.bounds) - 50, CGRectGetWidth(self.tableView.bounds), 50)];
     self.bannerAdView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
     self.bannerAdView.alpha = 0;
-    [self.view addSubview:self.bannerAdView];
+    if (self.loadingAdView) {
+        [self.view insertSubview:self.bannerAdView belowSubview:self.loadingAdView];
+    } else {
+        [self.view addSubview:self.bannerAdView];
+    }
+    
     __weak typeof(self) weakSelf = self;
     [UIView animateWithDuration:0.25
                      animations:^{

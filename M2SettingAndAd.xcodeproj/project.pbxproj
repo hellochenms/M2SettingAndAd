@@ -10,6 +10,8 @@
 		9904479219C67FF60062A524 /* BannerAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9904478F19C67FF60062A524 /* BannerAdView.m */; };
 		9904479319C67FF60062A524 /* M2BannerLifeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9904479119C67FF60062A524 /* M2BannerLifeManager.m */; };
 		9904479619C680380062A524 /* M2SAAWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9904479519C680380062A524 /* M2SAAWindow.m */; };
+		997C490219C80A9A0008B030 /* LoadingAdViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 997C48FF19C80A9A0008B030 /* LoadingAdViewAdapter.m */; };
+		997C490319C80A9A0008B030 /* M2LoadingAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 997C490119C80A9A0008B030 /* M2LoadingAdView.m */; };
 		9982CFCA19C290B700455257 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9982CFC919C290B700455257 /* Foundation.framework */; };
 		9982CFCC19C290B700455257 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9982CFCB19C290B700455257 /* CoreGraphics.framework */; };
 		9982CFCE19C290B700455257 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9982CFCD19C290B700455257 /* UIKit.framework */; };
@@ -47,6 +49,10 @@
 		9904479119C67FF60062A524 /* M2BannerLifeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M2BannerLifeManager.m; sourceTree = "<group>"; };
 		9904479419C680380062A524 /* M2SAAWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M2SAAWindow.h; sourceTree = "<group>"; };
 		9904479519C680380062A524 /* M2SAAWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M2SAAWindow.m; sourceTree = "<group>"; };
+		997C48FE19C80A9A0008B030 /* LoadingAdViewAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingAdViewAdapter.h; sourceTree = "<group>"; };
+		997C48FF19C80A9A0008B030 /* LoadingAdViewAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingAdViewAdapter.m; sourceTree = "<group>"; };
+		997C490019C80A9A0008B030 /* M2LoadingAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M2LoadingAdView.h; sourceTree = "<group>"; };
+		997C490119C80A9A0008B030 /* M2LoadingAdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M2LoadingAdView.m; sourceTree = "<group>"; };
 		9982CFC619C290B700455257 /* M2SettingAndAd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = M2SettingAndAd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9982CFC919C290B700455257 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9982CFCB19C290B700455257 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -101,7 +107,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9904478D19C67FCA0062A524 /* 3.广告banner */ = {
+		9904478D19C67FCA0062A524 /* 4.广告banner */ = {
 			isa = PBXGroup;
 			children = (
 				9904479019C67FF60062A524 /* M2BannerLifeManager.h */,
@@ -109,7 +115,18 @@
 				9904478E19C67FF60062A524 /* BannerAdView.h */,
 				9904478F19C67FF60062A524 /* BannerAdView.m */,
 			);
-			name = "3.广告banner";
+			name = "4.广告banner";
+			sourceTree = "<group>";
+		};
+		997C48FD19C80A5A0008B030 /* 3.开屏广告 */ = {
+			isa = PBXGroup;
+			children = (
+				997C490019C80A9A0008B030 /* M2LoadingAdView.h */,
+				997C490119C80A9A0008B030 /* M2LoadingAdView.m */,
+				997C48FE19C80A9A0008B030 /* LoadingAdViewAdapter.h */,
+				997C48FF19C80A9A0008B030 /* LoadingAdViewAdapter.m */,
+			);
+			name = "3.开屏广告";
 			sourceTree = "<group>";
 		};
 		9982CFBD19C290B700455257 = {
@@ -155,7 +172,8 @@
 				9982CFFC19C2916800455257 /* _tempViewController.m */,
 				9982CFFE19C292B000455257 /* 1.版本检查更新 */,
 				9982D00F19C2D67600455257 /* 2.评分提示 */,
-				9904478D19C67FCA0062A524 /* 3.广告banner */,
+				997C48FD19C80A5A0008B030 /* 3.开屏广告 */,
+				9904478D19C67FCA0062A524 /* 4.广告banner */,
 				9982CFDB19C290B800455257 /* Images.xcassets */,
 				9982CFFF19C292C900455257 /* Resources */,
 				9982CFD019C290B700455257 /* Supporting Files */,
@@ -328,6 +346,8 @@
 				9982D00319C2933100455257 /* M2VersionUpdateManager.m in Sources */,
 				9904479619C680380062A524 /* M2SAAWindow.m in Sources */,
 				9982CFFD19C2916800455257 /* _tempViewController.m in Sources */,
+				997C490219C80A9A0008B030 /* LoadingAdViewAdapter.m in Sources */,
+				997C490319C80A9A0008B030 /* M2LoadingAdView.m in Sources */,
 				9982CFDA19C290B800455257 /* AppDelegate.m in Sources */,
 				9982D01419C2D6AC00455257 /* M2RatingRemindManager.m in Sources */,
 				9982D00619C2933D00455257 /* VersionUpdateAdapter.m in Sources */,
